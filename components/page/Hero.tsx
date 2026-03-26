@@ -16,9 +16,7 @@ export default function Hero() {
     const card = cardRef.current;
     const image = imageRef.current;
 
-    if (!section || !card || !image) {
-      return;
-    }
+    if (!section || !card || !image) return;
 
     const mm = gsap.matchMedia();
 
@@ -38,7 +36,7 @@ export default function Hero() {
         .to(
           card,
           {
-            width: "100vw",
+            width: "100%", // 👈 FIX
             height: "100dvh",
             borderRadius: 0,
             ease: "none",
@@ -71,7 +69,7 @@ export default function Hero() {
         .to(
           card,
           {
-            width: "100vw",
+            width: "100%", // 👈 FIX
             height: "100dvh",
             borderRadius: 0,
             ease: "none",
@@ -96,7 +94,7 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className=" w-full h-dvh flex items-center justify-center"
+      className="w-full h-dvh flex items-center justify-center overflow-hidden"
     >
       <div
         ref={cardRef}
@@ -110,10 +108,10 @@ export default function Hero() {
         />
 
         <div className="absolute bottom-8 left-6 z-10 text-white">
-          <h1 className="text-5xl font-bold tracking-widest uppercase leading-tight">
-            FRACTAL
+          <h1 className="text-4xl font-bold tracking-widest uppercase leading-tight">
+            INGENIERIA &
             <br />
-            HAZE
+            DESARROLLO
           </h1>
         </div>
       </div>
