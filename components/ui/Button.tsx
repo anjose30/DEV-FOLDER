@@ -4,6 +4,7 @@ interface ButtonProps {
   backgroundColor?: string;
   colorType?: "dark" | "light";
   icon?: React.ReactNode;
+  customClass?: string;
 }
 
 export default function Button({
@@ -12,12 +13,13 @@ export default function Button({
   backgroundColor,
   colorType,
   icon,
+  customClass,
 }: ButtonProps) {
   return (
     <>
       <button
         onClick={onClick}
-        className={`py-2 px-5 ${backgroundColor} rounded-full w-min-content shadow-md hover:shadow-lg transition-shadow duration-300 font-medium ${colorType === "dark" ? "text-white" : "text-black"} flex flex-row items-center gap-2`}
+        className={`py-2 px-5 ${backgroundColor} rounded-full w-min-content shadow-md hover:shadow-lg transition-shadow duration-300 font-medium ${colorType === "dark" ? "text-white" : "text-black"} flex flex-row items-center gap-2 ${customClass ? customClass : ""}`}
       >
         {icon ? icon : null}
         {children}
