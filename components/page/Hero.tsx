@@ -8,6 +8,7 @@ export default function Hero() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const cardRef = useRef<HTMLDivElement | null>(null);
   const imageRef = useRef<HTMLImageElement | null>(null);
+  const textRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -15,8 +16,9 @@ export default function Hero() {
     const section = sectionRef.current;
     const card = cardRef.current;
     const image = imageRef.current;
+    const text = textRef.current;
 
-    if (!section || !card || !image) return;
+    if (!section || !card || !image || !text) return;
 
     const mm = gsap.matchMedia();
 
@@ -36,7 +38,7 @@ export default function Hero() {
         .to(
           card,
           {
-            width: "100%", // 👈 FIX
+            width: "100%",
             height: "100dvh",
             borderRadius: 0,
             ease: "none",
@@ -47,6 +49,15 @@ export default function Hero() {
           image,
           {
             filter: "grayscale(0)",
+            ease: "none",
+          },
+          0,
+        )
+        .to(
+          text,
+          {
+            opacity: 0,
+            y: 50,
             ease: "none",
           },
           0,
@@ -69,7 +80,7 @@ export default function Hero() {
         .to(
           card,
           {
-            width: "100%", // 👈 FIX
+            width: "100%",
             height: "100dvh",
             borderRadius: 0,
             ease: "none",
@@ -80,6 +91,15 @@ export default function Hero() {
           image,
           {
             filter: "grayscale(0)",
+            ease: "none",
+          },
+          0,
+        )
+        .to(
+          text,
+          {
+            opacity: 0,
+            y: 50,
             ease: "none",
           },
           0,
@@ -107,7 +127,7 @@ export default function Hero() {
           alt=""
         />
 
-        <div className="absolute bottom-8 left-6 z-10 text-white">
+        <div ref={textRef} className="absolute bottom-8 left-6 z-10 text-white">
           <h1 className="text-4xl font-bold tracking-widest uppercase leading-tight">
             INGENIERIA &
             <br />
