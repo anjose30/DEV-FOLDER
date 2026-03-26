@@ -1,11 +1,25 @@
 @import "tailwindcss";
 
-@theme{
-  --color-primary: #0070f3;
+@theme {
+  --color-primary: #a4b8bf;
+  --color-secondary: #5e7f8c;
+  --color-tertiary: #253540;
+  --color-foreground: #050a0d;
+  --color-background: #f2f2f2;
 }
 
 body {
-  background: #000000;
+  /* background: #000000; */
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
